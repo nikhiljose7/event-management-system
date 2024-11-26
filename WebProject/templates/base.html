@@ -1,1 +1,78 @@
-<!-- This file acts as a base HTML for most of the Web pages -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HallQuest</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'style.css') }}">
+<body>
+  <!-- Header -->
+  <header id = 'header' class="fixed-top d-flex align-items-center">
+    <div class="logo">
+      <h1 class="text-light"><a href=""><span>HallQuest</span></a></h1>
+      <a href=""><img src="" alt="logo image" class="img-fluid"></a>
+    </div>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <div class="navpages">
+        <a href="">Home</a>
+        <a href="">Properties</a>
+        <a href="">About Us</a>
+        <a href="">Contact</a>
+      </div>
+      <div class="auth-links">
+        <a href="">Sign Up</a>
+        <a href="">Login</a>
+      </div>
+    </nav>
+  </header>
+    {% block title %}
+    {% endblock %}
+    {% block content %}
+    {% endblock %}
+    <!-- Footer Section -->
+  <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Useful Links</h4>
+          <a href="">Home</a>
+          <a href="">Properties</a>
+          <a href="">About Us</a>
+          <a href="">Contact</a>
+        </div>
+    
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Our Services</h4>
+          <a href="">Bookhall</a>
+          <a href="">Properties</a>
+        </div>
+    
+        <div class="col-lg-3 col-md-6 footer-contact">
+          <h4>Contact Us</h4>
+          <p>
+          ABC Street, Nth Main Road <br>
+          Bangalore, 560073<br>
+          Karnataka <br>
+          India <br><br>
+          <strong>Phone:</strong> +91 568 845 7425<br>
+          <strong>Email:</strong> hallquest@gmail.com<br>
+          </p>
+        </div>
+    
+        <div class="col-lg-3 col-md-6 footer-info">
+          <h3>About HallQuest</h3>
+          <p>Whether it's an elegant wedding, a lively party, a professional conference, or any other special event, HallQuest is here to make the process seamless and stress-free.</p>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="copyright">
+        <p>&copy; 2024 HallQuest | All rights reserved.</p><br>
+        <a href="#privacy">Privacy Policy</a> |
+        <a href="#terms">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

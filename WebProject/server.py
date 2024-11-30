@@ -12,6 +12,7 @@ mysql = MySQL(app)
 
 @app.route('/')
 def home():
+   print("hello")
    return render_template('home.html')
 
 app.run(debug=True)

@@ -9,6 +9,7 @@ app.config['MYSQL_PASSWORD'] = '!QazmlP)9021'  # MySQL password
 app.config['MYSQL_DB'] = 'FullStackWebDevelopment'  # Database name
 mysql = MySQL(app)
 
+
 @app.route('/')
 def home():
    return render_template('home.html')

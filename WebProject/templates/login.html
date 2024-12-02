@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+
+    <!-- Top Navigation Bar -->
+    <div id="nav">
+        <div><h1>Event Horizon</h1></div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div id="main">
+        <!-- Left Section (Optional Branding or Image) -->
+        <div id="left">
+             <div>
+                <center><img src="static/logo.jpg" alt="Brand Logo" width="60%"></center>
+             </div>
+        </div>
+
+        <!-- Right Section (Login Form) -->
+        <div id="right">
+            <div id="form">
+                <form action="/createsession" method="POST">
+                    <div id="form_in">
+                        <center>
+                            <h3>Login</h3>
+                            <!-- Display error message if available -->
+                            {% if message %}
+                                <p style="color: red;">{{ message }}</p>
+                            {% endif %}
+                            <input type="email" name="email" placeholder="Email Address" required><br>
+                            <input type="password" name="password" placeholder="Password" required><br>
+                            <button type="submit">Login</button><br>
+                            <a href="/signup" class="button">Sign Up</a>
+                        </center>
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

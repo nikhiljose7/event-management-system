@@ -1,0 +1,73 @@
+#nav {
+    height: 10vh;
+    background-color: #E83D59; /* Matching primary logo color */
+    color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+#main {
+    display: flex;
+    height: 90vh;
+    background-color: #FAFAFA;
+}
+#left {
+    background-color: #F8D7DA; /* Subtle red tint */
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+#right {
+    display: flex;
+    background-color: #FFFFFF;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+#form {
+    height: auto;
+    width: 300px;
+    padding: 20px;
+    background-color: #F8D7DA; /* Matching logo accent */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#form input {
+    margin-bottom: 10px;
+    border: 1px solid #E83D59;
+    border-radius: 5px;
+    padding: 10px;
+    width: 80%;
+}
+#form button {
+    width: 100px;
+    padding: 10px;
+    background-color: #E83D59;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    transition: all 0.3s ease-in-out;
+}
+#form button:hover {
+    background-color: white;
+    color: #000000;
+}
+h1 {
+    text-align: center;
+    color: #E83D59;
+    font-family: 'Roboto', sans-serif;
+    font-size: 2em;
+    margin-bottom: 20px;
+}

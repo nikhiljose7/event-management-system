@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+
+    <!-- Top Navigation Bar -->
+    <div id="nav">
+        <div><h1>Event Horizon</h1></div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div id="main">
+        <!-- Left Section (Optional Branding or Image) -->
+        <div id="left">
+             <div>
+                <center><img src="static/logo.jpg" alt="Brand Logo" width="60%"></center>
+             </div>
+        </div>
+
+        <!-- Right Section (Signup Form) -->
+        <div id="right">
+            <div id="form">
+                <form action="/createuser" method="POST">
+                    <div id="form_in">
+                        <center>
+                            <h3>Sign Up</h3>
+                            <!-- Display error message if available -->
+                            {% if message %}
+                                <p style="color: red;">{{ message }}</p>
+                            {% endif %}
+                            <input type="text" name="username" placeholder="Name" required><br>
+                            <input type="email" name="email" placeholder="Email Address" required><br>
+                            <input type="password" name="password" placeholder="Password" required><br>
+                            <p style="font-size: 12px; color: gray;">Password must include at least 8 characters, 1 uppercase letter, 1 lowercase letter, 1 digit, and 1 special character.</p>
+                            <button type="submit">Sign Up</button><br>
+                            <a href="/" class="button">Log in</a>
+                        </center>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

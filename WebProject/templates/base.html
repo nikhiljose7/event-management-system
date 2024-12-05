@@ -1,78 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HallQuest - Seamlessly manage and book venues for your events.">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/logo.jpg') }}">
     <title>HallQuest</title>
     <link rel="stylesheet" href="{{ url_for('static', filename = 'style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'BaseStyle.css') }}">
+</head>
+
 <body>
-  <!-- Header -->
-  <header id = 'header' class="fixed-top d-flex align-items-center">
-    <div class="logo">
-      <h1 class="text-light"><a href=""><span>HallQuest</span></a></h1>
-      <a href=""><img src="" alt="logo image" class="img-fluid"></a>
-    </div>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-      <div class="navpages">
-        <a href="">Home</a>
-        <a href="">Properties</a>
-        <a href="">About Us</a>
-        <a href="">Contact</a>
-      </div>
-      <div class="auth-links">
-        <a href="">Sign Up</a>
-        <a href="">Login</a>
-      </div>
-    </nav>
-  </header>
-    {% block title %}
-    {% endblock %}
-    {% block content %}
-    {% endblock %}
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header__container">
+            <h1 class="header__title">
+                <a href="/" aria-label="HallQuest Home">
+                    <span class="header__logo">HallQuest</span>
+                </a>
+            </h1>
+            <a href="/" class="header__logo-link" aria-label="Home">
+                <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="HallQuest Logo" class="header__logo-img">
+            </a>
+        </div>
+
+        <!-- Navigation Bar -->
+        <nav class="header__nav">
+            <ul class="nav__links">
+                <li><a href="/" class="nav__link">Home</a></li>
+                <li><a href="/about" class="nav__link">About Us</a></li>
+                <li><a href="/contact" class="nav__link">Contact</a></li>
+            </ul>
+            <ul class="nav__auth">
+                <li><a href="/login" class="btn btn--primary">Sign Up / Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        {% block title %}
+        {% endblock %}
+        {% block content %}
+        {% endblock %}
+    </main>
+
     <!-- Footer Section -->
-  <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-3 col-md-6 footer-links">
-          <h4>Useful Links</h4>
-          <a href="">Home</a>
-          <a href="">Properties</a>
-          <a href="">About Us</a>
-          <a href="">Contact</a>
+    <footer class="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
+        <div class="footer__container">
+            <section class="footer__links">
+                <h4>Useful Links</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/properties">Properties</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </section>
+
+            <section class="footer__services">
+                <h4>Our Services</h4>
+                <ul>
+                    <li><a href="/bookhall">Bookhall</a></li>
+                    <li><a href="/properties">Properties</a></li>
+                </ul>
+            </section>
+
+            <section class="footer__contact">
+                <h4>Contact Us</h4>
+                <address>
+                    ABC Street, Nth Main Road <br>
+                    Bangalore, 560073<br>
+                    Karnataka, India<br><br>
+                    <strong>Phone:</strong> +91 568 845 7425<br>
+                    <strong>Email:</strong> <a href="mailto:hallquest@gmail.com">hallquest@gmail.com</a>
+                </address>
+            </section>
+
+            <section class="footer__about">
+                <h3>About HallQuest</h3>
+                <p>
+                    Whether it's an elegant wedding, a lively party, a professional conference, or any other special event,
+                    HallQuest is here to make the process seamless and stress-free.
+                </p>
+            </section>
         </div>
-    
-        <div class="col-lg-3 col-md-6 footer-links">
-          <h4>Our Services</h4>
-          <a href="">Bookhall</a>
-          <a href="">Properties</a>
+        <div class="footer__bottom">
+            <p>&copy; 2024 HallQuest | All rights reserved.</p>
+            <a href="#privacy">Privacy Policy</a> | <a href="#terms">Terms of Service</a>
+            <p>Follow us on: 
+                <a href="https://instagram.com/" target="_blank"><img class="social_id" src="{{ url_for('static', filename='images/Insta.webp') }}" alt="Instagram"></a>
+                <a href="https://linkedin.com/" target="_blank"><img class="social_id" src="{{ url_for('static', filename='images/LinkedIn.png') }}" alt="LinkedIn"></a>
+            </p>
         </div>
-    
-        <div class="col-lg-3 col-md-6 footer-contact">
-          <h4>Contact Us</h4>
-          <p>
-          ABC Street, Nth Main Road <br>
-          Bangalore, 560073<br>
-          Karnataka <br>
-          India <br><br>
-          <strong>Phone:</strong> +91 568 845 7425<br>
-          <strong>Email:</strong> hallquest@gmail.com<br>
-          </p>
-        </div>
-    
-        <div class="col-lg-3 col-md-6 footer-info">
-          <h3>About HallQuest</h3>
-          <p>Whether it's an elegant wedding, a lively party, a professional conference, or any other special event, HallQuest is here to make the process seamless and stress-free.</p>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="copyright">
-        <p>&copy; 2024 HallQuest | All rights reserved.</p><br>
-        <a href="#privacy">Privacy Policy</a> |
-        <a href="#terms">Terms of Service</a>
-      </div>
-    </div>
-  </footer>
+    </footer>
 </body>
+
 </html>

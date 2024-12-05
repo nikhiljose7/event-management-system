@@ -33,14 +33,19 @@ def password_check(password, min_length=8):
         return False, reasons
     return True, ["Password is strong."]
 
-# Routes for login and signup
+
 @app.route("/")
+def home():
+    return render_template("home.html")
+
+# Routes for login and signup
+@app.route("/login")
 def login():
     return render_template("login.html")
-
 @app.route("/signup")
 def signup():
     return render_template("signup.html")
+
 
 @app.route("/createuser", methods=['POST'])
 def createuser():
@@ -91,6 +96,13 @@ def index():
         return render_template("index.html", message=f"Welcome back, {session['username']}!")
     else:
         return redirect("/")
+
+
+
+
+
+
+
 
 # Routes for managing event types
 @app.route("/event_types")
@@ -190,12 +202,6 @@ def submit_feedback():
     cursor.close()
 
     return redirect("/feedback")
-
-
-@app.route('/temp')
-def home():
-   print("hello")
-   return render_template('home.html')
 
 if __name__ == "__main__":
     app.run(debug=True)

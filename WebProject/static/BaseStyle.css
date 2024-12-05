@@ -1,0 +1,198 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #0A0A0A; /* Jet Black */
+    color: #FFFFFF; /* White for text */
+}
+
+/* Header */
+.header {
+    background-color: #1A1A1A; /* Dark Gray for header */
+    padding: 20px 10%;
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__title a {
+    color: #00FFFF; /* Electric Blue */
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.header__logo-img {
+    height: 50px;
+    width: auto;
+}
+
+.header__nav {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__links,
+.nav__auth {
+    display: flex;
+    list-style: none;
+}
+
+.nav__link {
+    color: #FFFFFF;
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav__link:hover {
+    background-color: #800080; /* Neon Purple */
+    color: #00FF00; /* Bright Lime Green */
+}
+
+/* Buttons */
+.btn {
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn--primary {
+    background-color: #00FFFF; /* Electric Blue */
+    color: #0A0A0A; /* Jet Black */
+}
+
+.btn--primary:hover {
+    background-color: #800080; /* Neon Purple */
+    color: #FFFFFF; /* White */
+}
+
+/* Main Content */
+.main-content {
+    padding: 40px 10%;
+}
+
+/* Footer */
+.footer {
+    background-color: #1A1A1A; /* Dark Gray for footer */
+    color: #FFFFFF;
+    padding: 40px 10%;
+}
+
+.footer__container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer__links,
+.footer__services,
+.footer__contact,
+.footer__about {
+    flex: 1 1 calc(25% - 20px);
+    min-width: 200px;
+}
+
+.footer__links h4,
+.footer__services h4,
+.footer__contact h4,
+.footer__about h3 {
+    color: #00FFFF; /* Electric Blue */
+    margin-bottom: 10px;
+}
+
+.footer__links a,
+.footer__services a {
+    color: #FFFFFF;
+    text-decoration: none;
+    margin: 5px 0;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.footer__links a:hover,
+.footer__services a:hover {
+    color: #800080; /* Neon Purple */
+}
+
+.footer__contact address {
+    line-height: 1.6;
+}
+
+.footer__about p {
+    color: #CCCCCC; /* Light Gray for description text */
+    line-height: 1.6;
+}
+
+.footer__bottom {
+    text-align: center;
+    margin-top: 20px;
+    border-top: 1px solid #333333;
+    padding-top: 10px;
+}
+
+.footer__bottom a {
+    color: #00FFFF; /* Electric Blue */
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.footer__bottom a:hover {
+    text-decoration: underline;
+}
+
+/* Social Media Icons */
+.social_id {
+    width: 24px; /* Adjust the size of the icons */
+    height: 24px;
+    margin: 0 5px; /* Spacing between icons */
+    vertical-align: middle; /* Align icons with text */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.social_id:hover {
+    transform: scale(1.2); /* Slight zoom effect on hover */
+    opacity: 0.8; /* Reduce opacity for hover effect */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header__container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav__links {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    .footer__container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer__links,
+    .footer__services,
+    .footer__contact,
+    .footer__about {
+        flex: 1 1 100%;
+    }
+}

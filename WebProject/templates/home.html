@@ -1,41 +1,98 @@
-{% extends 'base.html' %} 
+{% extends "base.html" %}
+{% block title %}
+    <title>HallQuest - Your Event Partner</title>
+{% endblock %}
+
 {% block content %}
-<div class="container">
-  
-    <div class="row">
-      <div class="col-lg-6 video-box" style="align-self:center;">
-
+<main class="home-page">
+    <!-- Section 1: Image Slider -->
+    <section class="image-slider">
+      <div class="slider">
+          <div class="slide active">
+              <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Elegant Event Hall">
+              <div class="welcome-message">
+                  <h1>Welcome to HallQuest</h1>
+                  <p>Your ultimate destination for event venues and services.</p>
+              </div>
+          </div>
+          <div class="slide">
+              <img src="{{ url_for('static', filename='images/sample.png') }}" alt="Corporate Event">
+              <div class="welcome-message">
+                  <h1>Plan Your Event Effortlessly</h1>
+                  <p>Discover stunning venues for any occasion.</p>
+              </div>
+          </div>
+          <div class="slide">
+              <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Wedding Setup">
+              <div class="welcome-message">
+                  <h1>Make Memories That Last</h1>
+                  <p>With personalized services, we bring your vision to life.</p>
+              </div>
+          </div>
       </div>
-
-      <div class="col-lg-6 d-flex flex-column justify-content-center p-5">
-          <font color=#313a6b><br><br><h2 align="center">Professionals Login </h2><p align="center"> Enter your details to login to your account.<p><hr></font>
-              <form method="post" action='../PLogin'>l
-                  <div class="row1">
-                      <div class="col-25">
-                                <label for="email">Email ID</label>
-                          </div>
-                          <div class="col-75">
-                                <input type="email" id="email" name="P_email" placeholder="Your email id..." required>
-                          </div>
-                    </div>
-                  <div class="row1">
-                          <div class="col-25">
-                                <label for="pwd">Password</label>
-                          </div>
-                         <div class="col-75">
-                                <input type="password" id="pwd" name="P_password" title="Enter your password" placeholder="Your password..." required size="8">
-                          </div>
-                  </div>
-                    <div class="row" style="padding: 0px 180px 0px 180px;">
-                        
-                          <input type="submit" value="Submit" >
-                    </div>
-                    
-                  <hr>
-                  
-                </form>
-
+      <div class="slider-controls">
+          <button class="prev">&lt;</button>
+          <button class="next">&gt;</button>
       </div>
-    </div>
+    </section>
 
+    <script src="{{ url_for('static', filename='JavaScript.js') }}" defer></script>
+
+    <!-- Section 2: Services Tiles -->
+    <section class="services">
+        <h2>Our Services</h2>
+        <div class="tiles">
+            <div class="tile">
+                <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Book Hall">
+                <h3>Book Halls</h3>
+                <p>Find and book the perfect venue for your event.</p>
+            </div>
+            <div class="tile">
+                <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Event Decoration">
+                <h3>Event Decoration</h3>
+                <p>Professional decor services tailored to your needs.</p>
+            </div>
+            <div class="tile">
+                <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Catering Services">
+                <h3>Catering Services</h3>
+                <p>Delicious menus crafted for every occasion.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Testimonials -->
+    <section class="testimonials">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonial-cards">
+            <div class="card">
+                <p>"HallQuest made our wedding unforgettable! The service was impeccable."</p>
+                <h4>- Sarah M.</h4>
+            </div>
+            <div class="card">
+                <p>"A seamless booking process and fantastic venues. Highly recommended!"</p>
+                <h4>- John D.</h4>
+            </div>
+            <div class="card">
+                <p>"From decor to catering, everything was perfect. Will definitely use HallQuest again."</p>
+                <h4>- Priya K.</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Ratings -->
+    <section class="ratings">
+        <h2>Our Ratings</h2>
+        <div class="ratings-container">
+            <div class="rating">
+                <h3>4.8/5</h3>
+                <p>Based on 1,200 reviews</p>
+            </div>
+            <div class="rating-details">
+                <p>★★★★★ Excellent Service</p>
+                <p>★★★★☆ Great Value</p>
+                <p>★★★★★ Friendly Staff</p>
+            </div>
+        </div>
+    </section>
+</main>
 {% endblock %}

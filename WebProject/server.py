@@ -33,8 +33,8 @@ def password_check(password, min_length=8):
     return True, ["Password is strong."]
 # Pages
 # /   Home Completed
-# /about 
-# /contact
+# /about  Completed
+# /contact  
 # /bookhall
 # /decorations
 # /catering
@@ -45,6 +45,11 @@ def password_check(password, min_length=8):
 @app.route("/")
 def home():
     return render_template("home.html")
+
+
+
+
+
 
 # Routes for signup
 @app.route("/signup", methods=['GET','POST'])
@@ -68,7 +73,6 @@ def signup():
         else:
             return render_template("signup.html", message="The Passwords do not match!")
     return render_template("signup.html")
-
 # Routes for Login and creating session
 @app.route("/login", methods=['GET','POST'])
 def login():
@@ -82,21 +86,39 @@ def login():
         cursor.close()
         if user:
             session['loggedin'] = True
-            session['username'] = user[0]
-            if 'loggedin' in session:
-                return render_template("sessionhome.html", message=f"Welcome back, {session['username']}!")
-            else:
-                return redirect("/")
+            session['username'] = user[0]    
+            return redirect("/sessionhome")
         else:
             return render_template("login.html", message="Invalid email or password. Please try again.")
     return render_template("login.html")
-
+@app.route("/sessionhome")
+def sessionhome():
+    if 'loggedin' in session:
+        return render_template("sessionhome.html", user=f"Welcome back, {session['username']}!")
+    else:
+        return redirect("/")
 # Routes for Logout
 @app.route("/logout")
 def logout():
     session.pop('username', None)
     session.pop('loggedin', None)
     return redirect("/")
+
+
+
+
+
+
+
+# Route for About us
+@app.route("/about")
+def aboutus():
+    return render_template("aboutus.html")
+# Route for Contact us
+@app.route("/contact")
+def contactus():
+    return render_template("contactus.html")
+
 
 
 

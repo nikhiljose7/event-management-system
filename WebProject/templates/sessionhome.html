@@ -11,8 +11,10 @@
           <div class="slide active">
               <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Elegant Event Hall">
               <div class="welcome-message">
-                  <h1>Welcome to EventHorizon</h1>
-                  <p>Your ultimate destination for event venues and services.</p>
+                {% if user %}
+                    <h1>{{user}}</h1>
+                    <p>We're thrilled to see you again at EventHorizon.</p>
+                {% endif %}
               </div>
           </div>
           <div class="slide">

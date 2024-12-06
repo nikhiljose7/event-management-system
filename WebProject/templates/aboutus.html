@@ -1,0 +1,72 @@
+{% extends 'sessionbase.html' %}
+
+{% block content %}
+<main class="about-page">
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="hero-content">
+            <h1>About Us</h1>
+            <p>Welcome to EventHorizon! We are your partners in making every event truly unforgettable.</p>
+        </div>
+    </section>
+
+    <!-- Who We Are Section -->
+    <section class="about-section">
+        <h2>Who We Are</h2>
+        <p>
+            EventHorizon is a premier event planning and venue booking platform, dedicated to simplifying the process 
+            of organizing memorable events. From weddings and corporate meetings to private parties, we provide 
+            tailored solutions for every occasion.
+        </p>
+        <img src="{{ url_for('static', filename='images/about-us.jpg') }}" alt="Team at EventHorizon">
+    </section>
+
+    <!-- Our Mission Section -->
+    <section class="about-section">
+        <h2>Our Mission</h2>
+        <p>
+            Our mission is to transform the way events are planned and executed by offering a one-stop solution 
+            for venue booking, catering services, decoration, and more. We aim to create seamless and personalized 
+            experiences for our clients, ensuring their vision comes to life effortlessly.
+        </p>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="about-section">
+        <h2>Why Choose Us?</h2>
+        <ul>
+            <li>Wide selection of premium venues</li>
+            <li>End-to-end event management services</li>
+            <li>Professional and experienced team</li>
+            <li>Transparent pricing with no hidden costs</li>
+            <li>Dedicated customer support</li>
+        </ul>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonial-cards">
+            <div class="card">
+                <p>"EventHorizon turned our dream wedding into reality. The team was fantastic!"</p>
+                <h4>- Emily T.</h4>
+            </div>
+            <div class="card">
+                <p>"From booking the venue to catering, everything was handled with perfection."</p>
+                <h4>- Raj K.</h4>
+            </div>
+            <div class="card">
+                <p>"Professional, efficient, and friendly service. Highly recommend EventHorizon!"</p>
+                <h4>- Alex H.</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="about-cta">
+        <h2>Ready to Plan Your Next Event?</h2>
+        <p>Contact us today and let us help you create unforgettable memories.</p><br>
+        <a href="/contact" class="cta-button">Contact Us</a>
+    </section>
+</main>
+{% endblock %}

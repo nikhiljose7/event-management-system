@@ -6,12 +6,10 @@
     overflow: hidden;
     height: 400px;
 }
-
 .slider {
     position: relative;
     height: 100%;
 }
-
 .slide {
     position: absolute;
     top: 0;
@@ -22,19 +20,16 @@
     transition: opacity 0.5s ease-in-out;
     z-index: 0;
 }
-
 .slide.active {
     opacity: 1;
     z-index: 1;
 }
-
 /* Images */
 .slide img {
     width: 100%;
     height: 400px;
     object-fit: cover;
 }
-
 /* Welcome Message */
 .welcome-message {
     position: absolute;
@@ -49,18 +44,15 @@
     border-radius: 10px;
     animation: fadeIn 1.5s ease-in-out;
 }
-
 .welcome-message h1 {
     font-size: 2rem;
     margin-bottom: 10px;
     color: #FFD700; /* Gold */
 }
-
 .welcome-message p {
     font-size: 1.2rem;
     color: #FAF3E0; /* Light Cream */
 }
-
 /* Slider Controls */
 .slider-controls {
     position: absolute;
@@ -71,7 +63,6 @@
     transform: translateY(-50%);
     z-index: 2; /* Ensure controls are above the slides */
 }
-
 .slider-controls button {
     background: rgba(0, 0, 0, 0.7);/* Slightly darker background for visibility */
     color: white;
@@ -83,21 +74,17 @@
     transition: background 0.3s ease-in-out; /* Smooth hover effect */
     opacity: 1; /* Ensure buttons are always visible */
 }
-
 .slider-controls button:hover {
     background: rgba(255, 255, 255, 0.9); /* Change background on hover */
     color: black; /* Change text color for better contrast */
 }
-
 /* Ensure buttons are at the edges */
 .slider-controls .prev {
     margin-left: 10px;
 }
-
 .slider-controls .next {
     margin-right: 10px;
 }
-
 /* Keyframes for fadeIn Animation */
 @keyframes fadeIn {
     from {
@@ -109,26 +96,21 @@
         transform: translate(-50%, -50%);
     }
 }
-
-
 /* Section 2: Services Tiles */
 .services {
     padding: 40px 10%;
     text-align: center;
     background-color: #FFF4E6; /* Soft Cream */
 }
-
 .services h2 {
     color: #7B3F61; /* Deep Wine Red */
     margin-bottom: 20px;
 }
-
 .tiles {
     display: flex;
     gap: 20px;
     justify-content: center;
 }
-
 .tile {
     background-color: #E2A4A5; /* Dusty Rose */
     border: 1px solid #FFD700; /* Gold border */
@@ -138,12 +120,10 @@
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .tile:hover {
     transform: translateY(-10px);
     box-shadow: 0 10px 20px rgba(123, 63, 97, 0.5); /* Deep Wine Shadow */
 }
-
 .tile img {
     width: 100%;
     border-radius: 10px;
@@ -153,26 +133,22 @@
     text-decoration: none;
     color: inherit;
 }
-
 /* Section 3: Testimonials */
 .testimonials {
     padding: 40px 10%;
     background-color: #F8E6E0; /* Warm Pink */
     text-align: center;
 }
-
 .testimonials h2 {
     color: #5C2B3B; /* Plum */
     margin-bottom: 20px;
 }
-
 .testimonial-cards {
     display: flex;
     gap: 20px;
     justify-content: center;
     flex-wrap: wrap;
 }
-
 .card {
     background-color: #E2A4A5; /* Dusty Rose */
     color: #2E2E2E; /* Deep Charcoal */
@@ -181,26 +157,22 @@
     max-width: 300px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
-
 /* Section 4: Ratings */
 .ratings {
     padding: 40px 10%;
     background-color: #FFF4E6; /* Soft Cream */
     text-align: center;
 }
-
 .ratings h2 {
     color: #7B3F61; /* Deep Wine Red */
     margin-bottom: 20px;
 }
-
 .ratings-container {
     display: flex;
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
 }
-
 .rating {
     background-color: #FFD700; /* Gold */
     color: #5C2B3B; /* Plum */
@@ -209,14 +181,28 @@
     text-align: center;
     max-width: 200px;
 }
-
 .rating-details {
     text-align: left;
     color: #2E2E2E; /* Deep Charcoal */
 }
 
 
-/* Login Page Styles */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Login/Signup Page Styles */
 /* Main Container */
 #main {
     display: flex;
@@ -233,7 +219,6 @@
     text-align: center;
     padding: 20px;
 }
-
 #left img {
     width: 60%;
     border: 3px solid #FFB6C1;
@@ -251,14 +236,12 @@
 #form {
     width: 100%;
 }
-
 #form h3 {
     color: #D87093;
     font-family: 'Georgia', serif;
     font-size: 2rem;
     margin-bottom: 20px;
 }
-
 #form p {
     color: #FF6347;
     font-family: 'Arial', sans-serif;
@@ -274,7 +257,6 @@
     background-color: #FFF5F7;
     font-family: 'Arial', sans-serif;
 }
-
 /* Button Styles */
 #form button {
     background-color: #D87093;
@@ -287,11 +269,9 @@
     font-family: 'Georgia', serif;
     transition: background-color 0.3s ease;
 }
-
 #form button:hover {
     background-color: #C06083;
 }
-
 /* Link Styles */
 #form a {
     color: #D87093;
@@ -300,11 +280,9 @@
     font-family: 'Georgia', serif;
     transition: color 0.3s ease;
 }
-
 #form a:hover {
     color: #C06083;
 }
-
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     #main {
@@ -321,10 +299,341 @@
         padding: 20px;
     }
 }
-/*h1 {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* About Us Styles */
+.about-page {
+    padding: 20px;
+    background-color: #eddcd4; /* Soft peach background */
+    color: #7B3F61; /* Deep Wine Red */
+    font-family: 'Georgia', serif;
+    border-radius: 10px;
+}
+.about-hero {
+    background: linear-gradient(to bottom right, #d3a1bd, #fab7b7);
+    color: #7B3F61; /* Deep Wine Red */
     text-align: center;
-    color: #E83D59;
-    font-family: 'Roboto', sans-serif;
-    font-size: 2em;
+    padding: 50px 20px;
+    border-radius: 10px;
+}
+.about-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+.about-hero p {
+    font-size: 1.2rem;
+}
+.about-section {
+    margin: 40px 0;
+    text-align: center;
+    background-color: #fff0eb; /* Lighter cream section */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.about-section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 20px;
+    border: 3px solid #ffb3b0;
+}
+.about-section ul {
+    list-style: disc;
+    padding-left: 20px;
+    color: #4a2c2a;
+    text-align: left;
+    margin: 20px auto;
+    max-width: 600px;
+}
+.about-section ul li {
+    font-size: 18px;
+    margin: 10px 0;
+}
+.about-cta {
+    background: linear-gradient(to bottom right, #d3a1bd, #fab7b7);
+    color: #7B3F61; /* Deep Wine Red */
+    text-align: center;
+    padding: 30px 20px;
+    border-radius: 10px;
+    margin-top: 40px;
+}
+.about-cta .cta-button {
+    background-color: white;
+    color: #7B3F61; /* Deep Wine Red */
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    border: 2px solid white;
+}
+.about-cta .cta-button:hover {
+    background-color: white;
+    color: #ff9e9d;
+    border-color: #7B3F61; /* Deep Wine Red */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Contact Us Styles */
+.contact-page {
+    padding: 20px;
+    background-color: #eddcd4; /* Soft peach background */
+    font-family: 'Georgia', serif;
+    color: #7B3F61; /* Deep Wine Red */
+    border-radius: 10px;
+}
+
+.contact-hero {
+    background: linear-gradient(to bottom right, #d3a1bd, #fab7b7);
+    color: #7B3F61; /* Deep Wine Red */
+    text-align: center;
+    padding: 50px 20px;
+    border-radius: 10px;
+}
+
+.contact-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.contact-hero p {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.contact-form-section {
+    background-color: #f9e3dc; /* Light cream section */
+    padding: 40px 20px;
+    border-radius: 10px;
+    margin: 40px auto;
+    max-width: 600px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form-section h2 {
+    text-align: center;
     margin-bottom: 20px;
-}*/
+    color: #7B3F61; /* Deep Wine Red */
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #7B3F61; /* Deep Wine Red */
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ffb3b0;
+    border-radius: 5px;
+    background-color: #fff5f0;
+    color: #7B3F61; /* Deep Wine Red */
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #7B3F61; /* Deep Wine Red */
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 158, 157, 0.5);
+}
+
+.submit-button {
+    background-color: #ff9e9d;
+    color: #7B3F61; /* Deep Wine Red */
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: #f87f74;
+}
+
+.contact-info-section {
+    text-align: center;
+    margin: 40px auto;
+}
+
+.contact-info-section h2 {
+    margin-bottom: 20px;
+    color: #7B3F61; /* Deep Wine Red */
+}
+
+.info-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.info-card {
+    background-color: #ffe3e0; /* Soft blush background */
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 2px solid #ffb3b0;
+    text-align: center;
+}
+
+.info-card h3 {
+    margin-bottom: 10px;
+    color: #7B3F61; /* Deep Wine Red */
+}
+
+.info-card p {
+    font-size: 1rem;
+    color: #7B3F61; /* Deep Wine Red */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Feedback From Styles */
+.feedback-page {
+    padding: 20px;
+    background-color: #eddcd4; /* Soft peach background */
+    font-family: 'Georgia', serif;
+    color: #7B3F61; /* Deep Wine Red */
+    border-radius: 10px;
+}
+
+.feedback-hero {
+    background: linear-gradient(to bottom right, #d3a1bd, #fab7b7);
+    color: #7B3F61; /* Deep Wine Red */
+    text-align: center;
+    padding: 50px 20px;
+    border-radius: 10px;
+}
+
+.feedback-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.feedback-hero p {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.feedback-form-section {
+    background-color: #fff0eb; /* Light cream section */
+    padding: 40px 20px;
+    border-radius: 10px;
+    margin: 40px auto;
+    max-width: 600px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-form-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #7B3F61; /* Deep Wine Red */
+}
+
+.feedback-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #7B3F61; /* Deep Wine Red */
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ffb3b0;
+    border-radius: 5px;
+    background-color: #fff5f0;
+    color: #7B3F61; /* Deep Wine Red */
+}
+
+.form-group select {
+    background-color: #ffe3e0; /* Blush background for dropdown */
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #ff9e9d;
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 158, 157, 0.5);
+}
+
+.submit-button {
+    background-color: #ff9e9d;
+    color: #7B3F61; /* Deep Wine Red */
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: #ff6f61;
+}

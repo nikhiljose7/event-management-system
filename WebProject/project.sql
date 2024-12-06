@@ -1,13 +1,13 @@
-CREATE DATABASE `project` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-use project;
-CREATE TABLE `signin` (
-  `signin_id` int NOT NULL AUTO_INCREMENT,
-  `Name` varchar(45) DEFAULT NULL,
-  `Mobile` int DEFAULT NULL,
-  `Email` varchar(45) DEFAULT NULL,
-  `Password` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`Signin_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE DATABASE WebProject /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+use WebProject;
+CREATE TABLE SignIn (
+  SigninID int NOT NULL AUTO_INCREMENT,
+  SName varchar(50) DEFAULT NULL,
+  Mobile int DEFAULT NULL,
+  Email varchar(50) DEFAULT NULL,
+  SPassword varchar(50) DEFAULT NULL,
+  PRIMARY KEY (SigninID)
+);
 
 CREATE TABLE auth_user (
     id INT AUTO_INCREMENT PRIMARY KEY,

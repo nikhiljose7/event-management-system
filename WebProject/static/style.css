@@ -1,80 +1,7 @@
-#nav {
-    height: 10vh;
-    background-color: #E83D59; /* Matching primary logo color */
-    color: #FFFFFF;
-    font-family: 'Roboto', sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-}
-#main {
-    display: flex;
-    height: 90vh;
-    background-color: #FAFAFA;
-}
-#left {
-    background-color: #F8D7DA; /* Subtle red tint */
-    width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-#right {
-    display: flex;
-    background-color: #FFFFFF;
-    width: 50%;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-#form {
-    height: auto;
-    width: 300px;
-    padding: 20px;
-    background-color: #F8D7DA; /* Matching logo accent */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-#form input {
-    margin-bottom: 10px;
-    border: 1px solid #E83D59;
-    border-radius: 5px;
-    padding: 10px;
-    width: 80%;
-}
-#form button {
-    width: 100px;
-    padding: 10px;
-    background-color: #E83D59;
-    color: #FFFFFF;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: 'Roboto', sans-serif;
-    transition: all 0.3s ease-in-out;
-}
-#form button:hover {
-    background-color: white;
-    color: #000000;
-}
-/*h1 {
-    text-align: center;
-    color: #E83D59;
-    font-family: 'Roboto', sans-serif;
-    font-size: 2em;
-    margin-bottom: 20px;
-}*/
-
 /* Home Page Styles */
 /* Section 1: Image Slider */
 .image-slider {
+    background-color: #0077B6; /* Medium Blue */
     position: relative;
     overflow: hidden;
     height: 400px;
@@ -116,7 +43,8 @@
     transform: translate(-50%, -50%);
     text-align: center;
     color: #FFFFFF; /* White Text */
-    background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    background: rgba(123, 63, 97, 0.85); /* Transparent Deep Wine */
+    color: #FFF4E6; /* Soft Cream */
     padding: 20px;
     border-radius: 10px;
     animation: fadeIn 1.5s ease-in-out;
@@ -125,12 +53,12 @@
 .welcome-message h1 {
     font-size: 2rem;
     margin-bottom: 10px;
-    color: #00FFFF; /* Electric Blue */
+    color: #FFD700; /* Gold */
 }
 
 .welcome-message p {
     font-size: 1.2rem;
-    color: #CCCCCC; /* Light Gray */
+    color: #FAF3E0; /* Light Cream */
 }
 
 /* Slider Controls */
@@ -187,11 +115,11 @@
 .services {
     padding: 40px 10%;
     text-align: center;
-    background-color: #1A1A1A; /* Dark Background */
+    background-color: #FFF4E6; /* Soft Cream */
 }
 
 .services h2 {
-    color: #00FFFF; /* Electric Blue */
+    color: #7B3F61; /* Deep Wine Red */
     margin-bottom: 20px;
 }
 
@@ -202,17 +130,18 @@
 }
 
 .tile {
-    background-color: #0A0A0A; /* Jet Black */
+    background-color: #E2A4A5; /* Dusty Rose */
+    border: 1px solid #FFD700; /* Gold border */
+    color: #2E2E2E; /* Deep Charcoal */
     padding: 20px;
     border-radius: 10px;
     text-align: center;
-    color: #FFFFFF;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .tile:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 20px rgba(123, 63, 97, 0.5); /* Deep Wine Shadow */
 }
 
 .tile img {
@@ -220,16 +149,20 @@
     border-radius: 10px;
     margin-bottom: 10px;
 }
+#tilelink {
+    text-decoration: none;
+    color: inherit;
+}
 
 /* Section 3: Testimonials */
 .testimonials {
     padding: 40px 10%;
-    background-color: #0A0A0A;
+    background-color: #F8E6E0; /* Warm Pink */
     text-align: center;
 }
 
 .testimonials h2 {
-    color: #00FFFF;
+    color: #5C2B3B; /* Plum */
     margin-bottom: 20px;
 }
 
@@ -241,10 +174,10 @@
 }
 
 .card {
-    background-color: #1A1A1A;
+    background-color: #E2A4A5; /* Dusty Rose */
+    color: #2E2E2E; /* Deep Charcoal */
     padding: 20px;
     border-radius: 10px;
-    color: #FFFFFF;
     max-width: 300px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
@@ -252,12 +185,12 @@
 /* Section 4: Ratings */
 .ratings {
     padding: 40px 10%;
-    background-color: #1A1A1A;
+    background-color: #FFF4E6; /* Soft Cream */
     text-align: center;
 }
 
 .ratings h2 {
-    color: #00FFFF;
+    color: #7B3F61; /* Deep Wine Red */
     margin-bottom: 20px;
 }
 
@@ -269,15 +202,129 @@
 }
 
 .rating {
-    background-color: #0A0A0A;
+    background-color: #FFD700; /* Gold */
+    color: #5C2B3B; /* Plum */
     padding: 20px;
     border-radius: 10px;
     text-align: center;
-    color: #FFFFFF;
     max-width: 200px;
 }
 
 .rating-details {
     text-align: left;
-    color: #CCCCCC;
+    color: #2E2E2E; /* Deep Charcoal */
 }
+
+
+/* Login Page Styles */
+/* Main Container */
+#main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #FAE5E5;
+}
+/* Left Section */
+#left {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+}
+
+#left img {
+    width: 60%;
+    border: 3px solid #FFB6C1;
+    border-radius: 15px;
+}
+/* Right Section */
+#right {
+    flex: 1;
+    background-color: #FFF0F5;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+/* Form Styles */
+#form {
+    width: 100%;
+}
+
+#form h3 {
+    color: #D87093;
+    font-family: 'Georgia', serif;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+#form p {
+    color: #FF6347;
+    font-family: 'Arial', sans-serif;
+    margin-bottom: 15px;
+}
+/* Input Fields */
+#form input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #FFB6C1;
+    border-radius: 5px;
+    background-color: #FFF5F7;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Button Styles */
+#form button {
+    background-color: #D87093;
+    color: #FFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: 'Georgia', serif;
+    transition: background-color 0.3s ease;
+}
+
+#form button:hover {
+    background-color: #C06083;
+}
+
+/* Link Styles */
+#form a {
+    color: #D87093;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Georgia', serif;
+    transition: color 0.3s ease;
+}
+
+#form a:hover {
+    color: #C06083;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    #main {
+        flex-direction: column;
+    }
+
+    #left, #right {
+        flex: none;
+        width: 90%;
+        margin-bottom: 20px;
+    }
+
+    #right {
+        padding: 20px;
+    }
+}
+/*h1 {
+    text-align: center;
+    color: #E83D59;
+    font-family: 'Roboto', sans-serif;
+    font-size: 2em;
+    margin-bottom: 20px;
+}*/

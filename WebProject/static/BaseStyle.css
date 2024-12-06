@@ -8,13 +8,14 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background-color: #0A0A0A; /* Jet Black */
-    color: #FFFFFF; /* White for text */
+    background-color: #FFF4E6; /* Soft Cream */
+    color: #2E2E2E; /* Deep Charcoal */
 }
 
 /* Header */
 .header {
-    background-color: #1A1A1A; /* Dark Gray for header */
+    background-color: #7B3F61; /* Deep Wine Red */
+    color: #FFF4E6; /* Soft Cream */
     padding: 20px 10%;
 }
 
@@ -25,7 +26,7 @@ body {
 }
 
 .header__title a {
-    color: #00FFFF; /* Electric Blue */
+    color: #FFD700; /* Gold */
     text-decoration: none;
     font-size: 2rem;
     font-weight: bold;
@@ -50,7 +51,8 @@ body {
 }
 
 .nav__link {
-    color: #FFFFFF;
+    color: #FFF4E6; /* Soft Cream */
+    background-color: #7B3F61; /* Match header */
     text-decoration: none;
     margin: 0 10px;
     padding: 5px 10px;
@@ -59,8 +61,8 @@ body {
 }
 
 .nav__link:hover {
-    background-color: #800080; /* Neon Purple */
-    color: #00FF00; /* Bright Lime Green */
+    background-color: #FFD700; /* Gold */
+    color: #5C2B3B; /* Plum */
 }
 
 /* Buttons */
@@ -73,13 +75,15 @@ body {
 }
 
 .btn--primary {
-    background-color: #00FFFF; /* Electric Blue */
-    color: #0A0A0A; /* Jet Black */
+    background-color: #FFD700; /* Gold */
+    color: #5C2B3B; /* Plum */
+    border: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .btn--primary:hover {
-    background-color: #800080; /* Neon Purple */
-    color: #FFFFFF; /* White */
+    background-color: #E2A4A5; /* Dusty Rose */
+    color: #FFF4E6; /* Soft Cream */
 }
 
 /* Main Content */
@@ -89,8 +93,8 @@ body {
 
 /* Footer */
 .footer {
-    background-color: #1A1A1A; /* Dark Gray for footer */
-    color: #FFFFFF;
+    background-color: #7B3F61; /* Deep Wine Red */
+    color: #FFF4E6; /* Soft Cream */
     padding: 40px 10%;
 }
 
@@ -113,13 +117,13 @@ body {
 .footer__services h4,
 .footer__contact h4,
 .footer__about h3 {
-    color: #00FFFF; /* Electric Blue */
+    color: #FFD700; /* Gold */
     margin-bottom: 10px;
 }
 
 .footer__links a,
 .footer__services a {
-    color: #FFFFFF;
+    color: #FFF4E6; /* Soft Cream */
     text-decoration: none;
     margin: 5px 0;
     display: block;
@@ -128,7 +132,7 @@ body {
 
 .footer__links a:hover,
 .footer__services a:hover {
-    color: #800080; /* Neon Purple */
+    color: #FFF4E6; /* Soft Cream */
 }
 
 .footer__contact address {
@@ -143,12 +147,14 @@ body {
 .footer__bottom {
     text-align: center;
     margin-top: 20px;
-    border-top: 1px solid #333333;
-    padding-top: 10px;
+    background-color: #5C2B3B; /* Plum */
+    color: #FFF4E6; /* Soft Cream */
+    padding: 20px;
+    border-radius: 20px;
 }
 
 .footer__bottom a {
-    color: #00FFFF; /* Electric Blue */
+    color: #FFF4E6; /* Soft Cream */
     text-decoration: none;
     margin: 0 5px;
 }
@@ -170,6 +176,7 @@ body {
 .social_id:hover {
     transform: scale(1.2); /* Slight zoom effect on hover */
     opacity: 0.8; /* Reduce opacity for hover effect */
+    filter: brightness(1.2);
 }
 
 /* Responsive Design */

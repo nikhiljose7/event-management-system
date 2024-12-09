@@ -44,27 +44,23 @@
     <section class="services">
         <h2>Our Services</h2>
         <div class="tiles">
-            <div class="tile" >
-                <a href="/bookhall" id="tilelink" >
-                <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Book Hall">
-                <h3>Book Halls</h3>
-                <p>Find and book the perfect venue for your event.</p>
-                </a>
-            </div>
-            <div class="tile">
-                <a href="/decorations" id="tilelink" >
-                <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Event Decoration">
-                <h3>Event Decoration</h3>
-                <p>Professional decor services tailored to your needs.</p>
-                </a>
-            </div>
-            <div class="tile">
-                <a href="/catering" id="tilelink" >
-                <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Catering Services">
-                <h3>Catering Services</h3>
-                <p>Delicious menus crafted for every occasion.</p>
-                </a>
-            </div>
+            {% for i in res %}
+                {% if loop.index0 % 3 == 0 %}
+                    <!-- Start a new row every 3 items -->
+                    <div class="row">
+                {% endif %}
+                <div class="tile">
+                    <a href="/OurServices/{{ i[0] }}{{ i[1] }}" id="tilelink">
+                        <img src="{{ url_for('static', filename=i[2]) }}" alt="{{ i[1] }}">
+                        <h3>{{ i[1] }}</h3>
+                        <p>{{ i[3] }}</p>
+                    </a>
+                </div>
+                {% if (loop.index0 + 1) % 3 == 0 or loop.last %}
+                    <!-- Close the row after 3 items or on the last item -->
+                    </div>
+                {% endif %}
+            {% endfor %}
         </div>
     </section>
 

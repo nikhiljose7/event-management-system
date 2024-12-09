@@ -1,5 +1,8 @@
-{% extends 'sessionbase.html' %}
-
+{% if log %}
+    {% extends 'sessionbase.html' %}
+{% else %}
+    {% extends 'base.html' %}
+{% endif %}
 {% block content %}
 <main class="about-page">
     <!-- Hero Section -->

@@ -110,11 +110,19 @@
     display: flex;
     gap: 20px;
     justify-content: center;
+    flex-direction: column;
+}
+.row {
+    display: flex;
+    justify-content: space-between; /* Distributes tiles evenly */
+    gap: 20px; /* Space between tiles */
 }
 .tile {
+    flex: 1; /* Ensures tiles are of equal width */
+    max-width: 30%; /* Ensures 3 tiles per row */
     background-color: #E2A4A5; /* Dusty Rose */
     border: 1px solid #FFD700; /* Gold border */
-    color: #2E2E2E; /* Deep Charcoal */
+    color: #7B3F61; /* Deep Wine Red */
     padding: 20px;
     border-radius: 10px;
     text-align: center;
@@ -128,6 +136,7 @@
     width: 100%;
     border-radius: 10px;
     margin-bottom: 10px;
+    height: 150px;
 }
 #tilelink {
     text-decoration: none;

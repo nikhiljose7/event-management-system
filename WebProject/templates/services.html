@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        search book: <input type="text" name="" id = 'bookid'>
+        <input type="button" value="Get Book" onclick="checkbookid();">
+        <br><br>
+        <div id="mesg"></div><br>
+        <img id="pic" width="100" onmouseover="zoomin('pic');" onmouseout="zoomout('pic');">
+    </form>
+    <script>
+        function checkbookid(){
+            textbox=document.getElementById('bookid');
+            bookid = textbox.value;
+            pattern = /[0-9]/;
+            if (pattern.test(bookid)){
+                //alert('valid input')
+                ajaxgetcall(bookid);
+            } else {
+                //alert('invalid input')
+                div = document.getElementById('mesg');
+                div.style.color='blue';
+                div.textContent='Book should be a number!!';
+                img = document.getElementById('pic');
+                //img.src = 
+            }
+            function ajaxgetcall(bookid){
+                //step 1 define server action to be called
+                url='/validate?bookid='+bookid;
+                //step 2: create ajax request object
+            }
+        }
+    </script>
+</body>
+</html>

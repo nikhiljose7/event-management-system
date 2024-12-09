@@ -44,8 +44,23 @@ def password_check(password, min_length=8):
 # Routes for default home page
 @app.route("/")
 def home():
-    return render_template("home.html")
-
+    dbconn = mysql.connection
+    cursor = dbconn.cursor()
+    cursor.execute(f"select * from Services")
+    result = cursor.fetchall()
+    cursor.close()
+    return render_template("home.html",res = result)
+@app.route("/sessionhome")
+def sessionhome():
+    if 'loggedin' in session:
+        dbconn = mysql.connection
+        cursor = dbconn.cursor()
+        cursor.execute(f"select * from Services")
+        result = cursor.fetchall()
+        cursor.close()
+        return render_template("sessionhome.html", user=f"Welcome back, {session['username']}!",res=result)
+    else:
+        return redirect("/")
 
 
 
@@ -91,12 +106,6 @@ def login():
         else:
             return render_template("login.html", message="Invalid email or password. Please try again.")
     return render_template("login.html")
-@app.route("/sessionhome")
-def sessionhome():
-    if 'loggedin' in session:
-        return render_template("sessionhome.html", user=f"Welcome back, {session['username']}!")
-    else:
-        return redirect("/")
 # Routes for Logout
 @app.route("/logout")
 def logout():
@@ -113,11 +122,42 @@ def logout():
 # Route for About us
 @app.route("/about")
 def aboutus():
+    if 'loggedin' in session:
+        return render_template("aboutus.html",log = 'loggedin')    
     return render_template("aboutus.html")
 # Route for Contact us
 @app.route("/contact")
 def contactus():
+    if 'loggedin' in session:
+        return render_template("contactus.html",log = 'loggedin')
     return render_template("contactus.html")
+# Routes for submitting feedback
+@app.route("/feedback")
+def feedback():
+    if 'loggedin' in session:
+        return render_template("feedback.html",log = 'loggedin')
+    return render_template("feedback.html")
+
+@app.route("/submit_feedback", methods=['POST'])
+def submit_feedback():
+    event_id = request.form['event_id']
+    signin_id = request.form['signin_id']
+    rating = request.form['rating']
+    comments = request.form.get('comments', '')
+
+    dbconn = mysql.connection
+    cursor = dbconn.cursor()
+    cursor.execute("INSERT INTO Feedback (EventID, Signin_id, Rating, Comments) VALUES (%s, %s, %s, %s)", (event_id, signin_id, rating, comments))
+    dbconn.commit()
+    cursor.close()
+
+    return redirect("/feedback")
+
+# Routes for managing event types
+@app.route("/OurServices/<ser>")
+def services(ser):
+    
+    return render_template("services.html")
 
 
 
@@ -206,26 +246,6 @@ def record_payment():
     cursor.close()
 
     return redirect("/payments")
-
-# Routes for submitting feedback
-@app.route("/feedback")
-def feedback():
-    return render_template("feedback.html")
-
-@app.route("/submit_feedback", methods=['POST'])
-def submit_feedback():
-    event_id = request.form['event_id']
-    signin_id = request.form['signin_id']
-    rating = request.form['rating']
-    comments = request.form.get('comments', '')
-
-    dbconn = mysql.connection
-    cursor = dbconn.cursor()
-    cursor.execute("INSERT INTO Feedback (EventID, Signin_id, Rating, Comments) VALUES (%s, %s, %s, %s)", (event_id, signin_id, rating, comments))
-    dbconn.commit()
-    cursor.close()
-
-    return redirect("/feedback")
 
 if __name__ == "__main__":
     app.run(debug=True)

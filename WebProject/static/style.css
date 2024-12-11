@@ -1,10 +1,10 @@
 /* Home Page Styles */
 /* Section 1: Image Slider */
 .image-slider {
-    background-color: #0077B6; /* Medium Blue */
+    background-color: #FFF4E6; /* Soft Cream */
     position: relative;
     overflow: hidden;
-    height: 400px;
+    height: 500px;
 }
 .slider {
     position: relative;
@@ -19,6 +19,7 @@
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
     z-index: 0;
+    text-align: center;
 }
 .slide.active {
     opacity: 1;
@@ -26,9 +27,9 @@
 }
 /* Images */
 .slide img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
+    width: auto;
+    height: 500px;
+    text-align: center;
 }
 /* Welcome Message */
 .welcome-message {
@@ -37,7 +38,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    color: #FFFFFF; /* White Text */
     background: rgba(123, 63, 97, 0.85); /* Transparent Deep Wine */
     color: #FFF4E6; /* Soft Cream */
     padding: 20px;
@@ -335,7 +335,7 @@
     background: linear-gradient(to bottom right, #d3a1bd, #fab7b7);
     color: #7B3F61; /* Deep Wine Red */
     text-align: center;
-    padding: 50px 20px;
+    padding: 20px 20px;
     border-radius: 10px;
 }
 .about-hero h1 {
@@ -422,7 +422,7 @@
     background: linear-gradient(to bottom right, #d3a1bd, #fab7b7);
     color: #7B3F61; /* Deep Wine Red */
     text-align: center;
-    padding: 50px 20px;
+    padding: 20px 20px;
     border-radius: 10px;
 }
 
@@ -563,7 +563,7 @@
     background: linear-gradient(to bottom right, #d3a1bd, #fab7b7);
     color: #7B3F61; /* Deep Wine Red */
     text-align: center;
-    padding: 50px 20px;
+    padding: 20px 20px;
     border-radius: 10px;
 }
 

@@ -1,32 +1,32 @@
 {% extends "sessionbase.html" %}
-{% block title %}
-    <title>EventHorizon - Our Services</title>
-{% endblock %}
+
 {% block content %}
-<section class="contact-hero">
-    <div class="hero-content">
-        <h1>Our Services</h1>
-    </div>
-</section>
-<section class="services">
+<div class="about-page">
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="hero-content">
+            <h1>{{eve[1:]}}</h1>
+        </div>
+    </section><br>
     <div class="tiles">
         {% for i in res %}
             {% if loop.index0 % 3 == 0 %}
                 <!-- Start a new row every 3 items -->
                 <div class="row">
             {% endif %}
+
             <div class="tile">
-                <a href="/OurServices/{{ i[0] }}{{ i[1] }}" id="tilelink">
-                    <img src="{{ url_for('static', filename=i[2]) }}" alt="{{ i[1] }}">
-                    <h3>{{ i[1] }}</h3>
-                    <p>{{ i[3] }}</p>
+                <a href="/details/{{ i[2] }}{{ i[0] }}" id="tilelink">
+                <img src="{{ url_for('static', filename=i[1]) }}" alt="{{ i[0] }}">
+                <h3>{{ i[0] }}</h3>
                 </a>
             </div>
+
             {% if (loop.index0 + 1) % 3 == 0 or loop.last %}
                 <!-- Close the row after 3 items or on the last item -->
                 </div>
             {% endif %}
         {% endfor %}
     </div>
-</section>
+</div>
 {% endblock %}

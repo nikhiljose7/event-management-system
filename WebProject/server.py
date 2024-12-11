@@ -153,14 +153,33 @@ def submit_feedback():
 
     return redirect("/feedback")
 
-# Routes for managing event types
-@app.route("/OurServices/<ser>")
-def services(ser):
-    
-    return render_template("services.html")
+@app.route("/services")
+def services():
+    dbconn = mysql.connection
+    cursor = dbconn.cursor()
+    cursor.execute(f"select * from Services")
+    result = cursor.fetchall()
+    cursor.close()
+    return render_template("services.html",res=result)
 
+@app.route("/OurServices/<event>")
+def ourservices(event):
+    dbconn = mysql.connection
+    cursor = dbconn.cursor()
+    cursor.execute(f"select Name, MainImage, pocid from PointsOfContact where ServiceID = {event[0]}")
+    result = cursor.fetchall()
+    cursor.close()
+    return render_template("servicesub.html",res=result,eve=event)
 
-
+@app.route("/details/<det>")
+def details(det):
+    dbconn = mysql.connection
+    cursor = dbconn.cursor()
+    cursor.execute(f"select * from PointsOfContact where pocid = {det[0]}")
+    result = cursor.fetchone()
+    cursor.close()
+    print(result)
+    return render_template("halls.html", res=result)
 
 
 

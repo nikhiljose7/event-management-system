@@ -1,0 +1,55 @@
+{% extends 'sessionbase.html' %}
+
+{% block content %}
+<div class="about-page">
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="hero-content">
+            <h1>{{ res[2] }}</h1>
+        </div>
+    </section><br>
+
+    <!-- Section 1: Image Slider -->
+    <section class="image-slider">
+        <div class="slider">
+            {% for img in [res[7], res[8], res[9], res[10], res[11]] if img %}
+            <div class="slide active">
+                <img src="{{ url_for('static', filename=img) }}" alt="Additional Image">
+            </div>
+            {% endfor %}
+        </div>
+        <div class="slider-controls">
+            <button class="prev">&lt;</button>
+            <button class="next">&gt;</button>
+        </div>
+    </section>
+  
+    <script src="{{ url_for('static', filename='JavaScript.js') }}" defer></script>
+    
+    <section class="testimonials">
+        <h2>About</h2>
+        <p>{{ res[5] }}</p>
+    </section>
+    <section class="ratings">
+        <h2>Price: {{ res[3] }}</h2>
+    </section>
+    <section class="testimonials">
+        <h2>Capacity: {{ res[4] }}</h2>
+    </section>
+    <section class="ratings">
+        <h2>Amenities </h2>
+        <ul>
+            {% for j in res[12].split(',') %}
+            <li>{{ j }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+    <section class="testimonials">
+        <h2>Address</h2>
+        <p>{{ res[6] }}</p>
+    </section>
+    <section class="ratings">
+        <a href="{{ res[13] }}" class="btn btn-primary" target="_blank">More Details</a>
+    </section>
+</div>
+{% endblock %}

@@ -646,3 +646,15 @@
 .submit-button:hover {
     background-color: #ff6f61;
 }
+
+
+
+
+
+
+.success-message {
+    display: none; /* Hide the message by default */
+    color: green;
+    font-size: 16px;
+    margin-top: 20px;
+}

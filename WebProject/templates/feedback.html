@@ -17,7 +17,10 @@
     <!-- Feedback Form Section -->
     <section class="feedback-form-section">
         <h2>Share Your Experience</h2>
-        <form action="/submitfeedback" method="POST" class="feedback-form">
+        <div id="successMessage" class="success-message">
+            Your message has been submitted successfully!
+        </div>
+        <form id="FeedbackForm" action="/submitFeedback" method="POST" class="feedback-form">
             <div class="form-group">
                 <label for="name">Your Name</label>
                 <input type="text" id="name" name="name" placeholder="Enter your name" required>
@@ -43,6 +46,21 @@
             </div>
             <button type="submit" class="submit-button">Submit Feedback</button>
         </form>
+        <script>
+            // Get the form and the success message element
+            const form = document.getElementById("FeedbackForm");
+            const successMessage = document.getElementById("successMessage");
+    
+            // Add an event listener to handle form submission
+            form.addEventListener("submit", function(event) {
+                // Show the success message
+                successMessage.style.display = "block";  // Make the message visible
+                // Optionally hide the success message after a few seconds
+                setTimeout(function() {
+                    successMessage.style.display = "none";  // Hide the message after 3 seconds
+                }, 3000);
+            });
+        </script>
     </section>
 </main>
 {% endblock %}

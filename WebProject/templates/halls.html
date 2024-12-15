@@ -33,6 +33,7 @@
     <section class="ratings">
         <h2>Price: {{ res[3] }}</h2>
     </section>
+    {% if res[1] == 1 %}
     <section class="testimonials">
         <h2>Capacity: {{ res[4] }}</h2>
     </section>
@@ -44,6 +45,18 @@
             {% endfor %}
         </ul>
     </section>
+    {% endif %}
+    {% if res[1] == 2 %}
+    <section class="testimonials">
+        <h2>Cuisines </h2>
+        <ul>
+            {% for j in res[14].split(',') %}
+            <li>{{ j }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+    {% endif %}
+
     <section class="testimonials">
         <h2>Address</h2>
         <p>{{ res[6] }}</p>

@@ -16,7 +16,7 @@
             {% endif %}
 
             <div class="tile">
-                <a href="/details/{{ i[2] }}{{ i[0] }}" id="tilelink">
+                <a href="/details/{{ i[2] }} {{ i[0] }}" id="tilelink">
                 <img src="{{ url_for('static', filename=i[1]) }}" alt="{{ i[0] }}">
                 <h3>{{ i[0] }}</h3>
                 </a>

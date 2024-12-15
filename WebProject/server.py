@@ -81,6 +81,10 @@ def signup():
                 return render_template("signup.html", message=" ".join(feedback))
             dbconn = mysql.connection
             cursor = dbconn.cursor()
+            cursor.execute(f"Select * from AuthUser where Email='{email}'")
+            res = cursor.fetchone()
+            if res:
+                return render_template("signup.html", message="There is already a user registered with this Email. Please Login!!")
             cursor.execute(f"INSERT INTO AuthUser(AName, Mobile, Email, APassword) VALUES ('{username}', '{mobile}', '{email}', '{password}')")
             dbconn.commit()
             cursor.close()
@@ -96,12 +100,13 @@ def login():
         password = request.form['password']
         dbconn = mysql.connection
         cursor = dbconn.cursor()
-        cursor.execute(f"SELECT AName FROM AuthUser WHERE email = '{email}' AND apassword = '{password}'")
+        cursor.execute(f"SELECT AuthID,AName FROM AuthUser WHERE email = '{email}' AND apassword = '{password}'")
         user = cursor.fetchone()
         cursor.close()
         if user:
             session['loggedin'] = True
-            session['username'] = user[0]    
+            session['username'] = user[1] 
+            session['userid'] = user[0]   
             return redirect("/sessionhome")
         else:
             return render_template("login.html", message="Invalid email or password. Please try again.")
@@ -109,6 +114,7 @@ def login():
 # Routes for Logout
 @app.route("/logout")
 def logout():
+    session.pop('userid',None)
     session.pop('username', None)
     session.pop('loggedin', None)
     return redirect("/")
@@ -138,133 +144,85 @@ def feedback():
         return render_template("feedback.html",log = 'loggedin')
     return render_template("feedback.html")
 
-@app.route("/submit_feedback", methods=['POST'])
-def submit_feedback():
-    event_id = request.form['event_id']
-    signin_id = request.form['signin_id']
-    rating = request.form['rating']
-    comments = request.form.get('comments', '')
-
-    dbconn = mysql.connection
-    cursor = dbconn.cursor()
-    cursor.execute("INSERT INTO Feedback (EventID, Signin_id, Rating, Comments) VALUES (%s, %s, %s, %s)", (event_id, signin_id, rating, comments))
-    dbconn.commit()
-    cursor.close()
-
-    return redirect("/feedback")
-
 @app.route("/services")
 def services():
-    dbconn = mysql.connection
-    cursor = dbconn.cursor()
-    cursor.execute(f"select * from Services")
-    result = cursor.fetchall()
-    cursor.close()
-    return render_template("services.html",res=result)
+    if 'loggedin' in session:
+        dbconn = mysql.connection
+        cursor = dbconn.cursor()
+        cursor.execute(f"select * from Services")
+        result = cursor.fetchall()
+        cursor.close()
+        return render_template("services.html",res=result)
+    return redirect("/")
 
 @app.route("/OurServices/<event>")
 def ourservices(event):
-    dbconn = mysql.connection
-    cursor = dbconn.cursor()
-    cursor.execute(f"select Name, MainImage, pocid from PointsOfContact where ServiceID = {event[0]}")
-    result = cursor.fetchall()
-    cursor.close()
-    return render_template("servicesub.html",res=result,eve=event)
+    if 'loggedin' in session:
+        dbconn = mysql.connection
+        cursor = dbconn.cursor()
+        cursor.execute(f"select Name, MainImage, pocid from PointsOfContact where ServiceID = {event[0]}")
+        result = cursor.fetchall()
+        cursor.close()
+        return render_template("servicesub.html",res=result,eve=event)
+    return redirect("/")
 
 @app.route("/details/<det>")
 def details(det):
+    if 'loggedin' in session:
+        det1 = det.split(" ")
+        print(det1)
+        dbconn = mysql.connection
+        cursor = dbconn.cursor()
+        cursor.execute(f"select * from PointsOfContact where pocid = {det1[0]}")
+        result = cursor.fetchone()
+        cursor.close()
+        print(result)
+        return render_template("halls.html", res=result)
+    return redirect("/")
+
+
+
+
+
+
+
+@app.route("/submitFeedback", methods=['POST'])
+def submitFeedback():
+    if 'loggedin' in session:
+        name = request.form['name']
+        email = request.form['email']
+        rating = request.form['rating']
+        message = request.form['message']
+        dbconn = mysql.connection
+        cursor = dbconn.cursor()
+        cursor.execute(f"INSERT INTO Feedback (name, email, rating, message, authid) VALUES ('{name}', '{email}', '{rating}', '{message}','{session['userid']}')")
+        dbconn.commit()
+        cursor.close()
+        return redirect("/feedback")
+    return redirect("/")
+
+@app.route("/submitContact", methods=['GET','POST'])
+def submitContact():
+    if 'loggedin' in session:
+        name = request.form['name']
+        email = request.form['email']
+        message = request.form['message']
+        dbconn = mysql.connection
+        cursor = dbconn.cursor()
+        cursor.execute(f"INSERT INTO ContactForm (name, email, message, authid) VALUES ('{name}', '{email}', '{message}','{session['userid']}')")
+        dbconn.commit()
+        cursor.close()
+        return redirect("/contact")
+    name = request.form['name']
+    email = request.form['email']
+    message = request.form['message']
     dbconn = mysql.connection
     cursor = dbconn.cursor()
-    cursor.execute(f"select * from PointsOfContact where pocid = {det[0]}")
-    result = cursor.fetchone()
-    cursor.close()
-    print(result)
-    return render_template("halls.html", res=result)
-
-
-
-
-
-
-
-# Routes for managing event types
-@app.route("/event_types")
-def event_types():
-    return render_template("event_types.html")
-
-@app.route("/add_event_type", methods=['POST'])
-def add_event_type():
-    event_name = request.form['event_name']
-    base_cost = request.form['base_cost']
-    description = request.form['description']
-
-    dbconn = mysql.connection
-    cursor = dbconn.cursor()
-    cursor.execute("INSERT INTO EventTypes (EventName, BaseCost, Description) VALUES (%s, %s, %s)", (event_name, base_cost, description))
+    cursor.execute(f"INSERT INTO ContactForm (name, email, message) VALUES ('{name}', '{email}', '{message}')")
     dbconn.commit()
     cursor.close()
+    return redirect("/contact")
 
-    return redirect("/event_types")
-
-# Routes for managing event requirements
-@app.route("/event_requirements")
-def event_requirements():
-    return render_template("event_requirements.html")
-
-@app.route("/add_event_requirement", methods=['POST'])
-def add_event_requirement():
-    event_type_id = request.form['event_type_id']
-    requirement_name = request.form['requirement_name']
-    approx_cost = request.form['approx_cost']
-
-    dbconn = mysql.connection
-    cursor = dbconn.cursor()
-    cursor.execute("INSERT INTO EventRequirements (EventTypeID, RequirementName, ApproxCost) VALUES (%s, %s, %s)", (event_type_id, requirement_name, approx_cost))
-    dbconn.commit()
-    cursor.close()
-
-    return redirect("/event_requirements")
-
-# Routes for creating events
-@app.route("/events")
-def events():
-    return render_template("events.html")
-
-@app.route("/create_event", methods=['POST'])
-def create_event():
-    signin_id = request.form['signin_id']
-    event_type_id = request.form['event_type_id']
-    event_date = request.form['event_date']
-    total_cost = request.form['total_cost']
-    additional_notes = request.form.get('additional_notes', '')
-
-    dbconn = mysql.connection
-    cursor = dbconn.cursor()
-    cursor.execute("INSERT INTO Events (signin_id, EventTypeID, EventDate, TotalCost, AdditionalNotes) VALUES (%s, %s, %s, %s, %s)",
-                   (signin_id, event_type_id, event_date, total_cost, additional_notes))
-    dbconn.commit()
-    cursor.close()
-
-    return redirect("/events")
-
-# Routes for recording payments
-@app.route("/payments")
-def payments():
-    return render_template("payments.html")
-
-@app.route("/record_payment", methods=['POST'])
-def record_payment():
-    event_id = request.form['event_id']
-    amount_paid = request.form['amount_paid']
-    payment_method = request.form['payment_method']
-
-    dbconn = mysql.connection
-    cursor = dbconn.cursor()
-    cursor.execute("INSERT INTO Payments (EventID, AmountPaid, PaymentMethod) VALUES (%s, %s, %s)", (event_id, amount_paid, payment_method))
-    dbconn.commit()
-    cursor.close()
-
-    return redirect("/payments")
 
 if __name__ == "__main__":
     app.run(debug=True)

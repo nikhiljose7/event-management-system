@@ -17,7 +17,10 @@
     <!-- Contact Form Section -->
     <section class="contact-form-section">
         <h2>Get in Touch</h2>
-        <form action="/submitcontact" method="POST" class="contact-form">
+        <div id="successMessage" class="success-message">
+            Your message has been submitted successfully!
+        </div>
+        <form id="contactForm" action="/submitContact" method="POST" class="contact-form">
             <div class="form-group">
                 <label for="name">Your Name</label>
                 <input type="text" id="name" name="name" placeholder="Enter your full name" required>
@@ -32,6 +35,21 @@
             </div>
             <button type="submit" class="submit-button">Send Message</button>
         </form>
+        <script>
+            // Get the form and the success message element
+            const form = document.getElementById("contactForm");
+            const successMessage = document.getElementById("successMessage");
+    
+            // Add an event listener to handle form submission
+            form.addEventListener("submit", function(event) {
+                // Show the success message
+                successMessage.style.display = "block";  // Make the message visible
+                // Optionally hide the success message after a few seconds
+                setTimeout(function() {
+                    successMessage.style.display = "none";  // Hide the message after 3 seconds
+                }, 3000);
+            });
+        </script>
     </section>
 
     <!-- Contact Info Section -->

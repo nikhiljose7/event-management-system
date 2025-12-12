@@ -166,8 +166,11 @@ The application enforces strong password policies:
 
 ## 👥 Authors
 
-- **Original Developer**: Roshan Varghese
-- **Current Maintainer**: Nikhil Jose
+This project was created as a group collaboration by:
+
+- **Nikhil Jose** - [GitHub](https://github.com/nikhiljose7)
+- **Abishai Tom**
+- **Roshan Varghese** - [GitHub](https://github.com/RoshanVarghese)
 
 ## 📄 License
 
